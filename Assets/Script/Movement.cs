@@ -1,7 +1,7 @@
 4using UnityEngine;
 
 //Skyte ballong
-public class ShootBalloon : MonoBehaviour
+public class Balloon : MonoBehaviour
 {
     public Camera playerCamera;
 
@@ -15,21 +15,14 @@ public class ShootBalloon : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0)) //Venstre museklikk
-        {
-            Shoot();
-        }
+        
     }
 
-    void Shoot()
+    void OnCollisionEnter(Collision collision)
     {
-        RaycastHit hit;
-        if (Physics.Raycast(playerCamera.transform.position, playerCamera.transform.forward, out hit, range))
+        if (collision.gameObject.CompareTag("Projectile")) //Sjekker om den blir truffet
         {
-            if (hit.collider.CompareTag("Ballong")) 
-            {
-                Destroy(hit.collider.gameObject); //Sletter ballongen
-            }
+            Destroy(gameObject); //Sletter ballongen
         }
     }
 }
