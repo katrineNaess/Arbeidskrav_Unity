@@ -3,7 +3,7 @@ using UnityEngine;
 public class MouseMovement : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    public float mouseSensetivity = 1000f;
+    public float mouseSensetivity = 1500f;
 
     private float _xRotation = 0f;
     private float _yRotation = 0f;
