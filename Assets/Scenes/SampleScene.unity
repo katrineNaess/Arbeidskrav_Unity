@@ -191,7 +191,6 @@ GameObject:
   m_Component:
   - component: {fileID: 362018962}
   - component: {fileID: 362018963}
-  - component: {fileID: 362018964}
   m_Layer: 0
   m_Name: Ballong
   m_TagString: Untagged
@@ -237,19 +236,6 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &362018964
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 362018961}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 39f60e6aa908943e3959797267fe913e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  range: 100
 --- !u!1 &516454806
 GameObject:
   m_ObjectHideFlags: 0
@@ -259,7 +245,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 516454807}
-  - component: {fileID: 516454808}
   m_Layer: 0
   m_Name: Ballong (1)
   m_TagString: Untagged
@@ -284,19 +269,6 @@ Transform:
   - {fileID: 1161344142}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &516454808
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 516454806}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 39f60e6aa908943e3959797267fe913e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  range: 100
 --- !u!1 &526791309
 GameObject:
   m_ObjectHideFlags: 0
@@ -1135,6 +1107,7 @@ GameObject:
   - component: {fileID: 1397153461}
   - component: {fileID: 1397153460}
   - component: {fileID: 1397153459}
+  - component: {fileID: 1397153462}
   m_Layer: 0
   m_Name: Dummy Weapon
   m_TagString: Untagged
@@ -1231,6 +1204,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1397153457}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1397153462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1397153457}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1de50ccc333c84a6baf145cd499078c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 215988983698177697, guid: 8fd9aa3d91f7e4a45bf867af89243b70, type: 3}
+  bulletSpawn: {fileID: 0}
+  bulletVelocity: 30
+  bulletPrefabLifeTime: 3
 --- !u!1 &1561211396
 GameObject:
   m_ObjectHideFlags: 0
@@ -1443,7 +1432,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2132004137}
-  - component: {fileID: 2132004138}
   m_Layer: 0
   m_Name: Ballong (2)
   m_TagString: Untagged
@@ -1468,19 +1456,6 @@ Transform:
   - {fileID: 1561211397}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2132004138
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2132004136}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 39f60e6aa908943e3959797267fe913e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  range: 100
 --- !u!1 &2139290672
 GameObject:
   m_ObjectHideFlags: 0
