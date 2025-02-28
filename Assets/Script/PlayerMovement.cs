@@ -2,68 +2,57 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    
     private CharacterController controller;
 
     public float speed = 12f;
-    public float gravity = -9.81f * 2;
-    public float jumpHeight = 3f;
-    
+    public float gravity = -20f;
+    public float jumpHeight = 3.5f;
+
     public Transform groundCheck;
-    public float groundDistance = 0.4f;
+    public float groundDistance = 1.5f; 
     public LayerMask groundMask;
 
     private Vector3 velocity;
-    
-    bool isGrounded;
-    bool isMoving;
+    private bool isGrounded;
 
-    private Vector3 lastPosition = new Vector3(0f, 0f, 0f);
-    
     void Start()
     {
         controller = GetComponent<CharacterController>(); 
     }
 
-    // Update is called once per frame
     void Update()
     {
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
-        if (isGrounded && velocity.y < 0)
+        // Sikrer at spilleren lander korrekt
+        if (isGrounded)
         {
-            velocity.y = -2f;
+            if (velocity.y < 0)
+            {
+                velocity.y = -0.1f; // Hindrer "flyting"
+            }
         }
-        
+
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
-        
-        Vector3 move = transform.right * x + transform.forward * z;
-        
-        // flytter spilleren
-        controller.Move(move * speed * Time.deltaTime);
-        
-        // ser om spilleren kan hoppe
-        if (Input.GetButtonDown("Jump") && isGrounded)
-        {
-         velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);   
-        }
-        
-        // faller ned
-        velocity.y += gravity * Time.deltaTime;
-        
-        controller.Move(velocity * Time.deltaTime);
 
-        if (lastPosition != gameObject.transform.position && isGrounded == true)
+        Vector3 move = transform.right * x + transform.forward * z;
+
+        // Flytt spilleren
+        controller.Move(move * speed * Time.deltaTime);
+
+        // Hoppelogikk
+        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
-            isMoving = true;
+            velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
         }
-        else
+
+        // Påfør tyngdekraft når spilleren er i lufta
+        if (!isGrounded)
         {
-            isMoving = false;
+            velocity.y += gravity * Time.deltaTime;
         }
-        
-        lastPosition = gameObject.transform.position;
+
+        controller.Move(new Vector3(0, velocity.y, 0) * Time.deltaTime);
     }
 }
