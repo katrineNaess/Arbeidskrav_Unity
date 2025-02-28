@@ -1,9 +1,13 @@
+Nora
 using System;
 using System.Collections;
+
+main
 using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
+Nora
     public GameObject bulletPrefab;
     public Transform bulletSpawn;
     public float bulletVelocity = 30;
@@ -35,5 +39,17 @@ public class Weapon : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
         Destroy(bullet);
+
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
+    {
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+main
     }
 }
