@@ -1,13 +1,10 @@
-Nora
 using System;
 using System.Collections;
 
-main
 using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
-Nora
     public GameObject bulletPrefab;
     public Transform bulletSpawn;
     public float bulletVelocity = 30;
@@ -49,7 +46,6 @@ Nora
     // Update is called once per frame
     void Update()
     {
-        
-main
+     
     }
 }
