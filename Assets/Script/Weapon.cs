@@ -9,7 +9,7 @@ public class Weapon : MonoBehaviour
     public Transform bulletSpawn;
     public float bulletVelocity = 30;
     public float bulletPrefabLifeTime = 3f;
-    
+
 
     // Update is called once per frame
     void Update()
@@ -24,10 +24,10 @@ public class Weapon : MonoBehaviour
     {
         // instansiere kulen
         GameObject bullet = Instantiate(bulletPrefab, bulletSpawn.position, Quaternion.identity);
-        
+
         // skyte kulen
         bullet.GetComponent<Rigidbody>().AddForce(bulletSpawn.forward.normalized * bulletVelocity, ForceMode.Impulse);
-        
+
         // ødelegge kulen etterhvert 
         StartCoroutine(DestroyBulletAfterTime(bullet, bulletPrefabLifeTime));
     }
@@ -37,15 +37,16 @@ public class Weapon : MonoBehaviour
         yield return new WaitForSeconds(delay);
         Destroy(bullet);
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+        // Start is called once before the first execution of Update after the MonoBehaviour is created
+        void Start()
+        {
 
-    // Update is called once per frame
-    void Update()
-    {
-     
+        }
+
+        // Update is called once per frame
+        void Update()
+        {
+
+        }
     }
 }
