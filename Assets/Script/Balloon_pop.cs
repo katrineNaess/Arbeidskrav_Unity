@@ -6,8 +6,10 @@ public class Balloon : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        print("Ballongen ble truffet av : " + collision.gameObject.name);
         if (collision.gameObject.CompareTag("Target"))
         {
+            print("Ballongen ble truffet!");
             Explode();
         }
     }
